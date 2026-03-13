@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 $con=mysqli_connect("localhost","root","Test@123","kidzCare");
 define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/kidzcare/');
