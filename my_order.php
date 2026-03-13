@@ -15,7 +15,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
                         <div class="col-xs-12">
                             <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
-                                  <a class="breadcrumb-item" href="index.html">Home</a>
+                                  <a class="breadcrumb-item" href="index.php">Home</a>
                                   <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                                   <span class="breadcrumb-item active">Thank You</span>
                                 </nav>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
                                         <tbody>
 											<?php
 											$uid=$_SESSION['USER_ID'];
-											$res=mysqli_query($con,"select * from `order` where user_id='$uid'");
+											$res=mysqli_query($con,"select `order`.*,order_status.name as order_status_str from `order`,order_status where `order`.user_id='$uid' and order_status.id=`order`.order_status");
 											while($row=mysqli_fetch_assoc($res)){
 											?>
                                             <tr>
@@ -60,8 +60,8 @@ if(!isset($_SESSION['USER_LOGIN'])){
 												<?php echo $row['pincode']?>
 												</td>
 												<td class="product-name"><?php echo $row['payment_type']?></td>
-												<td class="product-name"><?php echo $row['payment_status']?></td>
-												<td class="product-name"><?php echo $row['order_status']?></td>
+												<td class="product-name"><?php echo ucfirst($row['payment_status'])?></td>
+												<td class="product-name"><?php echo $row['order_status_str']?></td>
                                                 
                                             </tr>
                                             <?php } ?>
