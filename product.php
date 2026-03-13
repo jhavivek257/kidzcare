@@ -53,7 +53,7 @@ if(isset($_GET['id'])){
                                 <div class="product__big__images">
                                     <div class="portfolio-full-image tab-content">
                                         <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                                            <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$get_product['0']['image']?>" alt="full-image">
+                                            <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$get_product['0']['image']?>">
                                         </div>
                                     </div>
                                 </div>
@@ -73,17 +73,33 @@ if(isset($_GET['id'])){
                                     <div class="sin__desc">
                                         <p><span>Availability:</span> In Stock</p>
                                     </div>
+									<div class="sin__desc">
+                                        <p><span>Qty:</span> 
+										<select id="qty">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+											<option>7</option>
+											<option>8</option>
+											<option>9</option>
+											<option>10</option>
+										</select>
+										</p>
+                                    </div>
                                     <div class="sin__desc align--left">
                                         <p><span>Categories:</span></p>
                                         <ul class="pro__cat__list">
-                                            <li><a href="#"><?php echo $get_product['0']['categories']?>,</a></li>
+                                            <li><a href="#"><?php echo $get_product['0']['categories']?></a></li>
                                         </ul>
                                     </div>
                                     
                                     </div>
 									
                                 </div>
-								<a class="fr__btn" href="#">Add to cart</a>
+								<a class="fr__btn" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id']?>','add')">Add to cart</a>
                             </div>
                         </div>
                     </div>
