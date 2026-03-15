@@ -12,4 +12,7 @@ define('PRODUCT_IMAGE_SITE_PATH',SITE_PATH.'media/product/');
 
 define('MERCHANT_KEY','idA30i');
 define('SALT_KEY','eotcVTB12bBW7TV3bLBXzBmA4LkC1snv');
+
+define('EMAIL_SMTP','vivek.jha5005@gmail.com');
+define('PASSWORD_SMTP','jkptvjytlenxspyr');
 ?>
