@@ -11,6 +11,10 @@ if(!isset($_GET['id']) && $_GET['id']!=''){
 
 $cat_id=mysqli_real_escape_string($con,$_GET['id']);
 
+$sub_categories='';
+if(isset($_GET['sub_categories'])){
+	$sub_categories=mysqli_real_escape_string($con,$_GET['sub_categories']);
+}
 $price_high_selected="";
 $price_low_selected="";
 $new_selected="";
@@ -34,8 +38,8 @@ if(isset($_GET['sort'])){
 
 }
 
-if($cat_id>0){
-	$get_product=get_product($con,'',$cat_id,'','',$sort_order);
+if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
+	$get_product=get_product($con,'',$cat_id,'','',$sort_order,'',$sub_categories);
 }else{
 	?>
 	<script>
