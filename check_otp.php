@@ -12,4 +12,13 @@ if($type=='email'){
 		echo "no";
 	}
 }
+
+if($type=='mobile'){
+	if($otp==$_SESSION['MOBILE_OTP']){
+		unset($_SESSION['MOBILE_OTP']);
+		echo "done";
+	}else{
+		echo "no";
+	}
+}
 ?>
