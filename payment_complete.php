@@ -13,14 +13,12 @@ $posted_hash=$_POST["hash"];
 $key=$_POST["key"];
 $productinfo=$_POST["productinfo"];
 $email=$_POST["email"];
-$MERCHANT_KEY = "gtKFFx"; 
-$SALT = "eCwWELxi";
 $udf5='';
-$keyString 	= $MERCHANT_KEY .'|'.$txnid.'|'.$amount.'|'.$productinfo.'|'.$firstname.'|'.$email.'|||||'.$udf5.'|||||';
+$keyString 	= MERCHANT_KEY .'|'.$txnid.'|'.$amount.'|'.$productinfo.'|'.$firstname.'|'.$email.'|||||'.$udf5.'|||||';
 $keyArray 	= explode("|",$keyString);
 $reverseKeyArray = array_reverse($keyArray);
 $reverseKeyString =	implode("|",$reverseKeyArray);
-$saltString     = $SALT.'|'.$status.'|'.$reverseKeyString;
+$saltString     = SALT_KEY.'|'.$status.'|'.$reverseKeyString;
 $sentHashString = strtolower(hash('sha512', $saltString));
 
 

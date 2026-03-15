@@ -17,9 +17,9 @@ if($check_user>0){
 	$mail->Port=587;
 	$mail->SMTPSecure="tls";
 	$mail->SMTPAuth=true;
-	$mail->Username="SMTP_EMAIL";
-	$mail->Password="PASSWORD";
-	$mail->SetFrom("SMTP_EMAIL");
+	$mail->Username=EMAIL_SMTP;
+	$mail->Password=PASSWORD_SMTP;
+	$mail->SetFrom(EMAIL_SMTP, "kidzCare");
 	$mail->addAddress($email);
 	$mail->IsHTML(true);
 	$mail->Subject="Your Password";
