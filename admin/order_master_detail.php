@@ -33,7 +33,18 @@ if(isset($_POST['update_order_status'])){
 								</thead>
 								<tbody>
 									<?php
-									$res=mysqli_query($con,"select distinct(order_detail.id) ,order_detail.*,product.name,product.image,`order`.address,`order`.city,`order`.pincode from order_detail,product ,`order` where order_detail.order_id='$order_id' and  order_detail.product_id=product.id GROUP by order_detail.id");
+									// $res=mysqli_query($con,"select distinct(order_detail.id) ,order_detail.*,product.name,product.image,`order`.address,`order`.city,`order`.pincode from order_detail,product ,`order` where order_detail.order_id='$order_id' and  order_detail.product_id=product.id GROUP by order_detail.id");
+									$res = mysqli_query($con, "SELECT 
+									order_detail.*, 
+									product.name,
+									product.image,
+									`order`.address,
+									`order`.city,
+									`order`.pincode
+									FROM order_detail
+									JOIN product ON order_detail.product_id=product.id
+									JOIN `order` ON order_detail.order_id=`order`.id
+									WHERE order_detail.order_id='$order_id'");
 									$total_price=0;
 									
 									$userInfo=mysqli_fetch_assoc(mysqli_query($con,"select * from `order` where id='$order_id'"));
