@@ -43,16 +43,16 @@ $html='<div class="wishlist-table table-responsive">
 		 $pp=$row['qty']*$row['price'];
          $html.='<tr>
             <td class="product-name">'.$row['name'].'</td>
-            <td class="product-name"> <img src="'.PRODUCT_IMAGE_SITE_PATH.$row['image'].'"></td>
+            <td class="product-name"> <img src="'.PRODUCT_IMAGE_SITE_PATH.$row['image'].'" height="30px" width="30px"></td>
             <td class="product-name">'.$row['qty'].'</td>
-            <td class="product-name">'.$row['price'].'</td>
-            <td class="product-name">'.$pp.'</td>
+            <td class="product-name">₹'.$row['price'].'</td>
+            <td class="product-name">₹'.$pp.'</td>
          </tr>';
 		 }
 		 $html.='<tr>
 				<td colspan="3"></td>
 				<td class="product-name">Total Price</td>
-				<td class="product-name">'.$total_price.'</td>
+				<td class="product-name">₹'.$total_price.'</td>
 				
 			</tr>';
 		 

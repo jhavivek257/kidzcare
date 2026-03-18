@@ -29,11 +29,11 @@ if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN']=='yes'){
         <!-- End Bradcaump area -->
         
 		<!-- Start Contact Area -->
-        <section class="htc__contact__area ptb--100 bg__white">
+        <section class="htc__contact__area ptb--40 bg__white">
             <div class="container">
                 <div class="row">
 					<div class="col-md-6">
-						<div class="contact-form-wrap mt--60">
+						<div class="contact-form-wrap">
 							<div class="col-xs-12">
 								<div class="contact-title">
 									<h2 class="title__line--6">Login</h2>
@@ -69,7 +69,7 @@ if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN']=='yes'){
 				
 
 					<div class="col-md-6">
-						<div class="contact-form-wrap mt--60">
+						<div class="contact-form-wrap">
 							<div class="col-xs-12">
 								<div class="contact-title">
 									<h2 class="title__line--6">Register</h2>

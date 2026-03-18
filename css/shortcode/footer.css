@@ -139,8 +139,8 @@
 
 
 .footer__container {
-    padding-bottom: 100px;
-    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 .title__line--2 {
     color: #ffffff;
@@ -304,7 +304,7 @@
 .copyright__inner {
     align-items: center;
     display: flex;
-    height: 70px;
+    height: 50px;
     justify-content: space-between;
 }
 .copyright__inner p {
