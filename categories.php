@@ -70,7 +70,7 @@ if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
         </div>
         <!-- End Bradcaump area -->
         <!-- Start Product Grid -->
-        <section class="htc__product__grid bg__white ptb--100">
+        <section class="htc__product__grid bg__white ptb--40">
             <div class="container">
                 <div class="row">
 					<?php if(count($get_product)>0){?>
@@ -96,7 +96,7 @@ if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
 										foreach($get_product as $list){
 										?>
 										<!-- Start Single Category -->
-										<div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
+										<div class="col-md-4 col-lg-2 col-sm-4 col-xs-12">
 											<div class="category">
 												<div class="ht__cat__thumb">
 													<a href="product.php?id=<?php echo $list['id']?>">
@@ -112,8 +112,8 @@ if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
 												<div class="fr__product__inner">
 													<h4><a href="product-details.html"><?php echo $list['name']?></a></h4>
 													<ul class="fr__pro__prize">
-														<li class="old__prize"><?php echo $list['mrp']?></li>
-														<li><?php echo $list['price']?></li>
+														<li class="old__prize">₹<?php echo $list['mrp']?></li>
+														<li>₹<?php echo $list['price']?></li>
 													</ul>
 												</div>
 											</div>

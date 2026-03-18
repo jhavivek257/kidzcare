@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------
 
-  Template Name: Asbab eCommerce HTML5 Template.
-  Description: Asbab is a unique website template designed in HTML with a simple & beautiful look.
+  Template Name: KidzCare-baby skincare & wellness.
+  Description: KidzCare-baby skincare & wellness.
 
 -----------------------------------------------------------------------------------
   
@@ -116,7 +116,28 @@
 /*---------------------------------------
   End Scroll To Top
 ----------------------------------------*/
+.thankyou-card{
+padding:40px;
+}
+.success-icon{
+font-size:60px;
+margin-bottom:15px;
+}
 
+.thankyou-card h2{
+color:#ff6b9d;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.success-msg{
+color:#666;
+font-size:15px;
+margin-bottom:20px;
+}
+.mb-30{
+    margin-bottom: 30px;
+}
 /*---------------------------------------
   03. Our Category Area
 ----------------------------------------*/
@@ -124,12 +145,14 @@
 /*---------------------------
   Start Section Title
 ----------------------------*/
-
+.slide__thumb {
+    background-color: #c1c1c1;
+}
 
 .section__title--2 h2 {
-    color: #313131;
+    color: #4aa8aa;
     font-family: Poppins;
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 700;
 }
 .section__title--2 p {
@@ -226,21 +249,21 @@
 
 .category {
     position: relative;
-    margin-top: 40px;
+    margin-top: 25px;
 }
 .fr__hover__info {
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 20px;
 }
 .fr__product__inner {
-    padding-top: 23px;
+    padding-top: 10px;
     text-align: center;
 }
 .fr__product__inner h4 a {
     color: #444;
     font-family: Old Standard TT;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
     text-transform: capitalize;
     transition: all 0.3s ease 0s;
@@ -251,7 +274,7 @@
 .fr__pro__prize {
     display: flex;
     justify-content: center;
-    margin-top: 6px;
+    margin-top: 3px;
 }
 .fr__pro__prize li {
     color: #313131;
@@ -262,6 +285,8 @@
 }
 .fr__pro__prize li.old__prize {
     color: #888888;
+    text-decoration: line-through;
+    font-size: 12px;
 }
 
 /*---------------------------------------
@@ -297,11 +322,12 @@
     display: inline-block;
     font-family: Poppins;
     font-size: 15px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 36px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 25px;
     transition: 0.3s;
-	margin-top:20px;
+	margin-top:5px;
+    border-radius: 7px;
 }
 
 .fr__btn:hover {
@@ -369,11 +395,11 @@
 .product__action li a {
     background: #fefefe none repeat scroll 0 0;
     display: inline-block;
-    height: 50px;
-    line-height: 60px;
+    height: 36px;
+    line-height: 45px;
     text-align: center;
     transition: all 0.4s ease 0s;
-    width: 50px;
+    width: 35px;
 }
 .product__action li {
     margin: 0;
@@ -381,7 +407,7 @@
 }
 .product__action li a i {
     color: #313131;
-    font-size: 18px;
+    font-size: 15px;
     transition: all 0.4s ease 0s;
 }
 .product__action li a:hover {
@@ -488,6 +514,7 @@
     color: #888888;
     font-weight: 400;
     padding-right: 12px;
+    text-decoration: line-through;
 }
 .htc__product__area {
     padding-top: 60px;
@@ -1358,17 +1385,37 @@
     color: #fff;
 }
 
+.about__content {
+	line-height: 1.8;
+}
+
+.about__content h2 {
+	font-weight: 700;
+}
+
+.about__content h3 {
+	font-weight: 600;
+	margin-top: 20px;
+}
+
+.about__content p {
+	color: #555;
+	font-size: 16px;
+}
 /*------------------------------
   16. Bradcaump Area
 --------------------------------*/
+.shop__list .category {
+    min-height: 350px;
+}
 
 .ht__bradcaump__wrap {
     align-items: center;
     display: flex;
-    height: 270px;
+    height: 170px;
 }
 .breadcrumb-item {
-    color: #494949;
+    color: #dc9851;
     font-family: "Poppins",sans-serif;
     font-size: 18px;
     font-weight: 500;
@@ -2023,7 +2070,7 @@ select.ht__select {
     margin-top: 32px;
 }
 .ht__pro__details__content {
-    padding-bottom: 90px;
+    padding-bottom: 30px;
 }
 select.select__size {
     border: 1px solid #afafaf;
@@ -2063,13 +2110,13 @@ select.select__size {
     border-radius: 0;
     border-style: solid;
     border-width: 1px 0 0 1px;
-    margin: 0 0 50px;
+    margin: 0 0 25px;
     text-align: center;
     width: 100%;
 }
 .table-content table th {
     border-top: medium none;
-    padding: 20px 10px;
+    padding: 8px;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -2077,7 +2124,7 @@ select.select__size {
     font-family: 'Poppins', sans-serif;
     color: #000000;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 .table-content table th,.table-content table td{
     border-bottom: 1px solid #c1c1c1;
@@ -2085,8 +2132,9 @@ select.select__size {
 }
 .table-content table td{
     border-top: medium none;
-    padding: 20px 10px;
-    vertical-align: middle;font-size: 13px;
+    padding: 8px 10px;
+    vertical-align: middle;
+    font-size: 12px;
 }
 .table-content table td input{
     background: #e5e5e5 none repeat scroll 0 0;
@@ -2155,9 +2203,10 @@ select.select__size {
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-weight: 500;
-    height: 62px;
-    line-height: 62px;
-    padding: 0 45px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 25px;
+    border-radius: 7px;
     text-transform: uppercase;
     display: inline-block;
 }
@@ -2322,7 +2371,7 @@ a.shipping-calculator-button:hover{
 }
 
 .buttons-cart--inner {
-    margin-bottom: 70px;
+    /* margin-bottom: 70px; */
 }
 .ht__coupon__code {
     background: #ebebeb none repeat scroll 0 0;
@@ -2753,7 +2802,7 @@ a.shipping-calculator-button:hover{
 .address {
     align-items: center;
     display: flex;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 .address__icon i {
     color: #fefefe;
@@ -2761,15 +2810,15 @@ a.shipping-calculator-button:hover{
 }
 .address__icon {
     background: #c43b68 none repeat scroll 0 0;
-    height: 120px;
-    line-height: 144px;
+    height: 70px;
+    line-height: 95px;
     text-align: center;
     width: 110px;
 }
 .address__details {
     background: #f5f5f5 none repeat scroll 0 0;
     flex-basis: calc(100% - 110px);
-    padding: 32.5px 12px 33.5px 42px;
+    padding: 10px 12px 11px 42px;
 }
 .address__details h2 {
     color: #212121;
@@ -2803,9 +2852,9 @@ a.shipping-calculator-button:hover{
 }
 .title__line--6 {
   color: #4d4d4d;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 34px;
+  margin-bottom: 18px;
   text-transform: uppercase;
 }
 
@@ -2813,12 +2862,12 @@ a.shipping-calculator-button:hover{
     background: #f5f5f5 none repeat scroll 0 0;
     border: 0 none;
     color: #666666;
-    font-size: 16px;
-    height: 62px;
-    padding: 0 47px;
+    font-size: 14px;
+    height: 42px;
+    padding: 0 15px;
 }
 .single-contact-form + .single-contact-form {
-    margin-top: 30px;
+    margin-top: 12px;
 }
 
 .contact-box.message textarea {
@@ -2826,21 +2875,22 @@ a.shipping-calculator-button:hover{
     border: 0 none;
     color: #666666;
     font-size: 16px;
-    min-height: 220px;
+    min-height: 150px;
     padding: 18px 47px;
 }
 .contact-btn {
-    margin-top: 32px;
+    margin-top: 15px;
 }
 .fv-btn {
     background: #c43b68 none repeat scroll 0 0;
     border: 1px solid #c43b68;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    height: 50px;
-    padding: 0 30px;
+    font-size: 12px;
+    font-weight: 500;
+    height: 40px;
+    padding: 0 25px;
+    border-radius: 8px;
     text-transform: uppercase;
     transition: all 0.4s ease 0s;
 }
@@ -2883,7 +2933,7 @@ a.shipping-calculator-button:hover{
     font-family: Old Standard TT;
     font-size: 16px;
     font-weight: 600;
-    padding: 15px 10px;
+    padding: 10px 10px;
     text-align: center;
 }
 .wishlist-table table .product-remove {
@@ -2892,7 +2942,23 @@ a.shipping-calculator-button:hover{
 }
 .wishlist-table table .product-remove > a, 
 .table-content table .product-remove > a {
-    font-size: 25px;
+    font-size: 18px;
+}
+.ordre-details__total.mrp-save {
+    border-bottom: 1px solid #ebebeb;
+    padding: 8px 0;
+}
+.mrp-save h5 {
+    font-size: 12px !important;
+}
+.mrp-save .price {
+    font-size: 12px !important;
+    text-decoration: line-through;
+    color: #888888;
+    font-weight: 300;
+}
+.single-item .pro__prize {
+    justify-content: left;
 }
 .wishlist-table table .product-thumbnail {
     width: 150px;
@@ -2910,6 +2976,7 @@ a.shipping-calculator-button:hover{
     font-weight: 700;
     padding: 10px 56px;
     text-transform: uppercase;
+    font-size: 12px;
     width: 260px;
 }
 .wishlist-table table .product-add-to-cart > a:hover{
@@ -3204,13 +3271,13 @@ ul.htc__instagram__posts.owl-carousel li img {
 /*Accordion styles*/
 .accordion .accordion__title{
     background: #f4f4f4;
-    height: 65px;
-    line-height: 65px;
+    height: 45px;
+    line-height: 45px;
     display: flex;
     align-items: center;
     padding: 0 30px;
     position: relative;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -3229,7 +3296,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     content: "\f273";
 }
 .accordion .accordion__body{
-    padding-top: 20px;
+    padding-top: 0px;
     padding-bottom: 30px;
 }
 
@@ -3412,7 +3479,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     background: #f4f4f4;
 }
 .order-details .order-details__title{
-    padding: 30px 0;
+    padding: 15px 0;
     margin: 0 15px;
     border-bottom: 1px solid #ebebeb;
     text-transform: uppercase;
@@ -3501,7 +3568,7 @@ ul.htc__instagram__posts.owl-carousel li img {
 }
 .order-details .ordre-details__total{
     margin: 0 30px;
-    padding: 30px 0;
+    padding: 15px 0;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
@@ -3563,7 +3630,7 @@ ul.htc__instagram__posts.owl-carousel li img {
 }
 
 .email_verify_otp{display:none;}
-.height_60px{height:60px;}
+.height_60px{height:42px;}
 #email_otp_result{
 	margin-top: 15px;
     font-size: 20px;

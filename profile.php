@@ -29,11 +29,11 @@ if(!isset($_SESSION['USER_LOGIN'])){
         <!-- End Bradcaump area -->
         
 		<!-- Start Contact Area -->
-        <section class="htc__contact__area ptb--100 bg__white">
+        <section class="htc__contact__area ptb--40 bg__white">
             <div class="container">
                 <div class="row">
 					<div class="col-md-6">
-						<div class="contact-form-wrap mt--60">
+						<div class="contact-form-wrap">
 							<div class="col-xs-12">
 								<div class="contact-title">
 									<h2 class="title__line--6">Profile</h2>
@@ -63,7 +63,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
 				
 				<div class="row">
 					<div class="col-md-6">
-						<div class="contact-form-wrap mt--60">
+						<div class="contact-form-wrap">
 							<div class="col-xs-12">
 								<div class="contact-title">
 									<h2 class="title__line--6">Change Password</h2>

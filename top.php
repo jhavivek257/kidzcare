@@ -27,9 +27,9 @@ $script_name=$_SERVER['SCRIPT_NAME'];
 $script_name_arr=explode('/',$script_name);
 $mypage=$script_name_arr[count($script_name_arr)-1];
 
-$meta_title="My Ecom Website";
-$meta_desc="My Ecom Website";
-$meta_keyword="My Ecom Website";
+$meta_title="KidzCare - Baby skincare & wellness";
+$meta_desc="Baby skin care and wellness";
+$meta_keyword="baby skin care and wellness";
 if($mypage=='product.php'){
 	$product_id=get_safe_value($con,$_GET['id']);
 	$product_meta=mysqli_fetch_assoc(mysqli_query($con,"select * from product where id='$product_id'"));
@@ -77,10 +77,6 @@ if($mypage=='product.php'){
 	</style>
 </head>
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->  
-
     <!-- Body main wrapper start -->
     <div class="wrapper">
         <header id="htc__header" class="htc__header__area header--one">
@@ -90,17 +86,19 @@ if($mypage=='product.php'){
                         <div class="menumenu__container clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5"> 
                                 <div class="logo">
-                                     <a href="index.php"><img src="images/logo/4.png" alt="logo images"></a>
+                                     <a href="index.php"><img src="images/logo/logo.png" alt="logo images"></a>
                                 </div>
                             </div>
-                            <div class="col-md-7 col-lg-6 col-sm-5 col-xs-3">
+                            <div class="col-md-8 col-lg-7 col-sm-5 col-xs-3">
                                 <nav class="main__menu__nav hidden-xs hidden-sm">
                                     <ul class="main__menu">
                                         <li class="drop"><a href="index.php">Home</a></li>
+										<li class="drop"><a href="about-us.php">About us</a></li>
+										<li class="drop"><a href="shop.php">Shop All</a></li>
                                         <?php
 										foreach($cat_arr as $list){
 											?>
-											<li class="drop"><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a>
+											<li class="drop"><a href="javascript:void()"><?php echo $list['categories']?></a>
 											<?php
 											$cat_id=$list['id'];
 											$sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
@@ -128,6 +126,7 @@ if($mypage=='product.php'){
                                     <nav id="mobile_dropdown">
                                         <ul>
                                             <li><a href="index.php">Home</a></li>
+											<li><a href="about-us.php">About us</a></li>
                                             <?php
 											foreach($cat_arr as $list){
 												?>
@@ -156,7 +155,7 @@ if($mypage=='product.php'){
                                     </nav>
                                 </div>  
                             </div>
-                            <div class="col-md-3 col-lg-4 col-sm-4 col-xs-4">
+                            <div class="col-md-2 col-lg-3 col-sm-4 col-xs-4">
                                 <div class="header__right">
 									<?php 
 									$class="mr15";
@@ -179,7 +178,7 @@ if($mypage=='product.php'){
 											  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 												<ul class="navbar-nav mr-auto">
 												  <li class="nav-item dropdown">
-													<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<a class="nav-link dropdown-toggle" href="javascript:void()" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													  Hi <?php echo $_SESSION['USER_NAME']?>
 													</a>
 													<div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -1,0 +1,76 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap";
+
+body{
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg,#ffe9f0,#e6f7ff);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.login-box{
+background:white;
+padding:40px;
+border-radius:15px;
+width:380px;
+box-shadow:0 10px 40px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:600;
+color:#ff7aa2;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:14px;
+color:#888;
+margin-bottom:30px;
+}
+
+.form-control{
+border-radius:30px;
+padding:12px 20px;
+font-size:14px;
+border:1px solid #eee;
+}
+
+.form-control:focus{
+box-shadow:none;
+border-color:#ff7aa2;
+}
+
+.btn-login{
+background:#ff7aa2;
+border:none;
+border-radius:30px;
+padding:12px;
+width:100%;
+font-weight:500;
+color:white;
+transition:0.3s;
+cursor: pointer;
+}
+
+.btn-login:focus {
+    outline: none;
+}
+
+.btn-login:hover{
+background:#ff5c8a;
+}
+
+.field_error{
+margin-top:15px;
+color:red;
+font-size:14px;
+}
+
+.baby-icon{
+font-size:50px;
+margin-bottom:10px;
+}
+

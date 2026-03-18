@@ -33,7 +33,7 @@
 }
 .main__menu li {
     position: relative;
-    margin: 0 20px;
+    margin: 0 15px;
 }
 .main__menu > li:hover > a{
   color: #c43b68;
