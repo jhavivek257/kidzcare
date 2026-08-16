@@ -10,6 +10,9 @@ if (isset($_POST['update_order_status'])) {
 	} else {
 		mysqli_query($con, "update `order` set order_status='$update_order_status' where id='$order_id'");
 	}
+	set_flash('msg', 'Order status updated successfully ✅');
+	header('location:order_master.php');
+	die();
 }
 ?>
 <div class="content pb-0">

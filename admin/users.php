@@ -8,6 +8,7 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 		$id = get_safe_value($con, $_GET['id']);
 		$delete_sql = "delete from users where id='$id'";
 		mysqli_query($con, $delete_sql);
+		set_flash('msg', 'User deleted successfully ✅');
 	}
 }
 
@@ -47,7 +48,7 @@ $res = mysqli_query($con, $sql);
 											<td><?php echo $row['added_on'] ?></td>
 											<td>
 												<?php
-												echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'>Delete</a></span>";
+												echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'onclick=\"return confirm('Are you sure you want to delete this user?')\">Delete</a></span>";
 												?>
 											</td>
 										</tr>
@@ -55,6 +56,11 @@ $res = mysqli_query($con, $sql);
 								</tbody>
 							</table>
 						</div>
+						<?php if ($msg = get_flash('msg')) { ?>
+							<div id="myToast" class="myToast__msg">
+								<?php echo $msg; ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

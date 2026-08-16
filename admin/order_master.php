@@ -77,6 +77,11 @@ $res = mysqli_query($con, $sql);
 
 							</table>
 						</div>
+						<?php if ($msg = get_flash('msg')) { ?>
+							<div id="myToast" class="myToast__msg">
+								<?php echo $msg; ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

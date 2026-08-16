@@ -342,6 +342,80 @@
     left: 14px
 }
 
+/* admin dashboard  */
+.dashboard-card {
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    padding: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+    color: #f8f9f3;
+    font-weight: 600;
+}
+
+.card-value {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-growth {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+/* Gradients */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.bg-gradient-info {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #f6d365, #fda085);
+}
+
+/* toast notification  */
+.myToast__msg{
+    position: fixed;
+    top: 8px;
+    right: 30px;
+    background: #1c7a46;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    z-index: 9999;
+}
 .tdl-holder li span {
     margin-left: 30px;
     vertical-align: middle;

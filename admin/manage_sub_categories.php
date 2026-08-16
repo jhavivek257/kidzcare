@@ -39,9 +39,11 @@ if (isset($_POST['submit'])) {
 	if ($msg == '') {
 		if (isset($_GET['id']) && $_GET['id'] != '') {
 			mysqli_query($con, "update sub_categories set categories_id='$categories',sub_categories='$sub_categories' where id='$id'");
+			set_flash('msg', 'Sub category updated successfully ✅');
 		} else {
 
 			mysqli_query($con, "insert into sub_categories(categories_id,sub_categories,status) values('$categories','$sub_categories','1')");
+			set_flash('msg', 'Sub category added successfully ✅');
 		}
 		header('location:sub_categories.php');
 		die();

@@ -13,12 +13,22 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 		}
 		$update_status_sql = "update product set status='$status' where id='$id'";
 		mysqli_query($con, $update_status_sql);
+		set_flash('msg', 'Product status updated successfully ✅');
 	}
 
 	if ($type == 'delete') {
 		$id = get_safe_value($con, $_GET['id']);
+		$res = mysqli_query($con, "select image from product where id='$id'");
+		if (mysqli_num_rows($res) > 0) {
+			$row = mysqli_fetch_assoc($res);
+			$image = $row['image'];
+			if ($image != '' && file_exists(PRODUCT_IMAGE_SERVER_PATH . $image)) {
+				unlink(PRODUCT_IMAGE_SERVER_PATH . $image);
+			}
+		}
 		$delete_sql = "delete from product where id='$id'";
 		mysqli_query($con, $delete_sql);
+		set_flash('msg', 'Product deleted successfully ✅');
 	}
 }
 
@@ -81,7 +91,7 @@ $res = mysqli_query($con, $sql);
 												}
 												echo "<span class='badge badge-edit'><a href='manage_product.php?id=" . $row['id'] . "'>Edit</a></span>&nbsp;";
 
-												echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'>Delete</a></span>";
+												echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'onclick=\"return confirm('Are you sure you want to delete this product?')\">Delete</a></span>";
 
 												?>
 											</td>
@@ -90,6 +100,11 @@ $res = mysqli_query($con, $sql);
 								</tbody>
 							</table>
 						</div>
+						<?php if ($msg = get_flash('msg')) { ?>
+							<div id="myToast" class="myToast__msg">
+								<?php echo $msg; ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

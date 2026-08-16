@@ -13,12 +13,14 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 		}
 		$update_status_sql = "update categories set status='$status' where id='$id'";
 		mysqli_query($con, $update_status_sql);
+		set_flash('msg', 'Category status updated successfully ✅');
 	}
 
 	if ($type == 'delete') {
 		$id = get_safe_value($con, $_GET['id']);
 		$delete_sql = "delete from categories where id='$id'";
 		mysqli_query($con, $delete_sql);
+		set_flash('msg', 'Category deleted successfully ✅');
 	}
 }
 
@@ -64,8 +66,7 @@ $res = mysqli_query($con, $sql);
 												}
 												echo "<span class='badge badge-edit'><a href='manage_categories.php?id=" . $row['id'] . "'>Edit</a></span>&nbsp;";
 
-												echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'>Delete</a></span>";
-
+												echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'onclick=\"return confirm('Are you sure you want to delete this category?')\">Delete</a></span>";
 												?>
 											</td>
 										</tr>
@@ -73,6 +74,11 @@ $res = mysqli_query($con, $sql);
 								</tbody>
 							</table>
 						</div>
+						<?php if ($msg = get_flash('msg')) { ?>
+							<div id="myToast" class="myToast__msg">
+								<?php echo $msg; ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>

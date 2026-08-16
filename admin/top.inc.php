@@ -38,9 +38,11 @@ if ($hour < 12) {
    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
    <link rel="stylesheet" href="assets/css/style.css">
    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-   <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" />
+   <script>
+      setTimeout(() => {
+         document.getElementById('myToast').style.display = 'none';
+      }, 5000);
+   </script>
 </head>
 
 <body>
