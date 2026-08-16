@@ -39,9 +39,8 @@
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
-| **Demo User 1** | `phpvisha1l@gmail.com` | `vishal` |
+| **Demo User 1** | `jhav668@gmail.com` | `admin` |
 | **Demo User 2** | `amir@gmail.com` | `amit` |
-| **Demo User 3** | `ytlearnwebdevelopment@gmail.com` | `vishal` |
 
 > 💡 *New users can also register freely on the storefront registration page.*
 
@@ -77,7 +76,7 @@ git clone https://github.com/your-username/kidzcare.git kidzcare
 2. Open **phpMyAdmin** in your browser (`http://localhost/phpmyadmin`).
 3. Create a new database named **`kidzCare`**.
 4. Select the `kidzCare` database and go to the **Import** tab.
-5. Choose the database dump file **`ecom13.sql`** located in the root of the project folder.
+5. Choose the database dump file **`kidzCare.sql`** located in the root of the project folder.
 6. Click **Go** / **Import** to execute the SQL file and create the required tables and sample data.
 
 ---
