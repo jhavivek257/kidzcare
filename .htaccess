@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect index.php to clean URL
+RewriteCond %{THE_REQUEST} /index\.php [NC]
+RewriteRule ^index\.php$ /kidzcare/ [R=301,L]
+
+# Hide index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]

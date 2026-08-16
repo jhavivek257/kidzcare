@@ -13,15 +13,17 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
         }
         $update_status_sql = "update product_review set status='$status' where id='$id'";
         mysqli_query($con, $update_status_sql);
+        set_flash('msg', 'Product review status updated successfully ✅');
     }
     if ($type == 'delete') {
         $id = get_safe_value($con, $_GET['id']);
         $delete_sql = "delete from product_review where id='$id'";
         mysqli_query($con, $delete_sql);
+        set_flash('msg', 'Product review deleted successfully ✅');
     }
 }
 
-$sql = "select users.name,users.email,product_review.id,product_review.rating,product_review.review,product_review.added_on,product_review.status,product.name as pname from users,product_review,product where product_review.user_id=users.id and product_review.product_id=product.id  order by product_review.added_on desc";
+$sql = "select users.name,users.email,product_review.id,product_review.rating,product_review.review,product_review.added_on,product_review.status,product.name as pname from product_review left join users on product_review.user_id=users.id left join product on product_review.product_id=product.id order by product_review.added_on desc";
 $res = mysqli_query($con, $sql);
 ?>
 <div class="content pb-0">
@@ -52,8 +54,8 @@ $res = mysqli_query($con, $sql);
                                     while ($row = mysqli_fetch_assoc($res)) { ?>
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
-                                            <td><?php echo $row['name'] ?>/<?php echo $row['email'] ?></td>
-                                            <td><?php echo $row['pname'] ?></td>
+                                            <td><?php echo ($row['name'] ?? 'N/A') ?>/<?php echo ($row['email'] ?? 'N/A') ?></td>
+                                            <td><?php echo ($row['pname'] ?? 'N/A') ?></td>
                                             <td><?php echo $row['rating'] ?></td>
                                             <td><?php echo $row['review'] ?></td>
                                             <td><?php echo $row['added_on'] ?></td>
@@ -64,7 +66,7 @@ $res = mysqli_query($con, $sql);
                                                 } else {
                                                     echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=" . $row['id'] . "'>Deactive</a></span>&nbsp;";
                                                 }
-                                                echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'>Delete</a></span>";
+                                                echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['id'] . "'onclick=\"return confirm('Are you sure you want to delete this review?')\">Delete</a></span>";
                                                 ?>
                                             </td>
                                         </tr>
@@ -72,6 +74,11 @@ $res = mysqli_query($con, $sql);
                                 </tbody>
                             </table>
                         </div>
+                        <?php if ($msg = get_flash('msg')) { ?>
+                            <div id="myToast" class="myToast__msg">
+                                <?php echo $msg; ?>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

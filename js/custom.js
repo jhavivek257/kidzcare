@@ -5,20 +5,24 @@ function send_message(){
 	var message=jQuery("#message").val();
 	
 	if(name==""){
-		alert('Please enter name');
+		jQuery('.form-messege').html('<div class="alert alert-danger" style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; padding: 10px 15px; border-radius: 6px; margin-top: 15px;">Please enter name</div>');
 	}else if(email==""){
-		alert('Please enter email');
+		jQuery('.form-messege').html('<div class="alert alert-danger" style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; padding: 10px 15px; border-radius: 6px; margin-top: 15px;">Please enter email</div>');
 	}else if(mobile==""){
-		alert('Please enter mobile');
+		jQuery('.form-messege').html('<div class="alert alert-danger" style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; padding: 10px 15px; border-radius: 6px; margin-top: 15px;">Please enter mobile</div>');
 	}else if(message==""){
-		alert('Please enter message');
+		jQuery('.form-messege').html('<div class="alert alert-danger" style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; padding: 10px 15px; border-radius: 6px; margin-top: 15px;">Please enter message</div>');
 	}else{
 		jQuery.ajax({
 			url:'send_message.php',
 			type:'post',
 			data:'name='+name+'&email='+email+'&mobile='+mobile+'&message='+message,
 			success:function(result){
-				alert(result);
+				jQuery('.form-messege').html('<div class="alert alert-success" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb; padding: 10px 15px; border-radius: 6px; margin-top: 15px;">' + result + '</div>');
+				jQuery('#name').val('');
+				jQuery('#email').val('');
+				jQuery('#mobile').val('');
+				jQuery('#message').val('');
 			}	
 		});
 	}
@@ -107,13 +111,20 @@ function manage_cart(pid,type){
 		type:'post',
 		data:'pid='+pid+'&qty='+qty+'&type='+type,
 		success:function(result){
-			if(type=='update' || type=='remove'){
-				window.location.href=window.location.href;
-			}
 			if(result=='not_avaliable'){
 				alert('Qty not avaliable');	
 			}else{
-				jQuery('.htc__qua').html(result);
+				if(type=='update' || type=='remove' || window.location.href.indexOf('wishlist.php') !== -1){
+					window.location.href=window.location.href;
+				}else{
+					jQuery('.htc__qua').html(result);
+					if(type=='add'){
+						jQuery('#cart_msg').html('<div class="alert alert-success" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb; padding: 12px 20px; border-radius: 6px; margin-top: 15px; font-weight: 500;"><i class="fa fa-check-circle mr-2"></i> Product added to cart successfully!</div>');
+						setTimeout(function(){
+							jQuery('#cart_msg').html('');
+						}, 4000);
+					}
+				}
 			}
 		}	
 	});	

@@ -20,11 +20,21 @@ require('top.php');
             </div>
         </div>
         <!-- End Bradcaump area -->
-        <!-- cart-main-area start -->
         <div class="cart-main-area ptb--50 bg__white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
+                        <?php if ($msg = get_flash('msg')) { ?>
+                            <div id="myToast" class="alert alert-success" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px; font-weight: 500;">
+                                <?php echo $msg; ?>
+                            </div>
+                            <script>
+                                setTimeout(() => {
+                                    var toast = document.getElementById('myToast');
+                                    if (toast) toast.style.display = 'none';
+                                }, 4000);
+                            </script>
+                        <?php } ?>
                         <form action="#">               
                             <div class="table-content table-responsive">
                                 <table>

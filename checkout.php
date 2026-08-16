@@ -131,9 +131,90 @@ if (isset($_POST['submit'])) {
 	</div>
 </div>
 <!-- End Bradcaump area -->
-<!-- cart-main-area start -->
+<style>
+.accordion__title {
+	cursor: pointer;
+	background: #f8fafc;
+	border: 1px solid #cbd5e1;
+	padding: 14px 20px;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 15px;
+	color: #1e293b;
+	margin-top: 12px;
+	margin-bottom: 0;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.accordion__title:hover, .accordion__title.active {
+	background: #2563eb;
+	color: #ffffff;
+	border-color: #2563eb;
+}
+.accordion__title:hover small, .accordion__title.active small {
+	color: #e2e8f0;
+}
+.accordion__hide {
+	background: #f1f5f9;
+	border: 1px solid #e2e8f0;
+	padding: 14px 20px;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 15px;
+	color: #94a3b8;
+	margin-top: 12px;
+	margin-bottom: 0;
+	cursor: not-allowed;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.accordion__body {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-top: none;
+	padding: 20px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+.checkout-payment-box {
+	display: flex;
+	gap: 15px;
+	margin-top: 10px;
+}
+.checkout-payment-option {
+	border: 2px solid #cbd5e1;
+	border-radius: 8px;
+	padding: 10px 18px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 600;
+	color: #334155;
+	background: #ffffff;
+}
+.checkout-payment-option:hover {
+	border-color: #2563eb;
+}
+</style>
+
 <div class="checkout-wrap ptb--50">
 	<div class="container">
+		<?php if ($msg = get_flash('msg')) { ?>
+			<div id="myToast" class="alert alert-success" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb; padding: 12px 20px; border-radius: 6px; margin-bottom: 20px; font-weight: 500;">
+				<?php echo $msg; ?>
+			</div>
+			<script>
+				setTimeout(() => {
+					var toast = document.getElementById('myToast');
+					if (toast) toast.style.display = 'none';
+				}, 4000);
+			</script>
+		<?php } ?>
 		<div class="row">
 			<div class="col-md-8">
 				<div class="checkout__inner">
@@ -145,8 +226,9 @@ if (isset($_POST['submit'])) {
 							if (!isset($_SESSION['USER_LOGIN'])) {
 								$accordion_class = 'accordion__hide';
 							?>
-								<div class="accordion__title">
-									Checkout Method
+								<div class="accordion__title active">
+									<span><i class="fa fa-user mr-2"></i> 1. Checkout Method</span>
+									<i class="fa fa-chevron-down"></i>
 								</div>
 								<div class="accordion__body">
 									<div class="accordion__body__form">
@@ -154,22 +236,22 @@ if (isset($_POST['submit'])) {
 											<div class="col-md-6">
 												<div class="checkout-method__login">
 													<form id="login-form" method="post">
-														<h5 class="checkout-method__title">Login</h5>
-														<div class="single-input">
-															<input type="text" name="login_email" id="login_email" placeholder="Your Email*" style="width:100%">
+														<h5 class="checkout-method__title font-weight-bold mb-3">Login to Account</h5>
+														<div class="single-input mb-3">
+															<input type="text" name="login_email" id="login_email" placeholder="Your Email*" class="form-control" style="width:100%">
 															<span class="field_error" id="login_email_error"></span>
 														</div>
 
-														<div class="single-input">
-															<input type="password" name="login_password" id="login_password" placeholder="Your Password*" style="width:100%">
+														<div class="single-input mb-3">
+															<input type="password" name="login_password" id="login_password" placeholder="Your Password*" class="form-control" style="width:100%">
 															<span class="field_error" id="login_password_error"></span>
 														</div>
 
-														<p class="require">* Required fields</p>
-														<div class="dark-btn">
-															<button type="button" class="fv-btn" onclick="user_login()">Login</button>
+														<p class="require text-muted small">* Required fields</p>
+														<div class="dark-btn mt-3">
+															<button type="button" class="fv-btn btn btn-primary" onclick="user_login()">Login</button>
 														</div>
-														<div class="form-output login_msg">
+														<div class="form-output login_msg mt-2">
 															<p class="form-messege field_error"></p>
 														</div>
 													</form>
@@ -178,26 +260,26 @@ if (isset($_POST['submit'])) {
 											<div class="col-md-6">
 												<div class="checkout-method__login">
 													<form action="#">
-														<h5 class="checkout-method__title">Register</h5>
-														<div class="single-input">
-															<input type="text" name="name" id="name" placeholder="Your Name*" style="width:100%">
+														<h5 class="checkout-method__title font-weight-bold mb-3">Register New Account</h5>
+														<div class="single-input mb-3">
+															<input type="text" name="name" id="name" placeholder="Your Name*" class="form-control" style="width:100%">
 															<span class="field_error" id="name_error"></span>
 														</div>
-														<div class="single-input">
-															<input type="text" name="email" id="email" placeholder="Your Email*" style="width:100%">
+														<div class="single-input mb-3">
+															<input type="text" name="email" id="email" placeholder="Your Email*" class="form-control" style="width:100%">
 															<span class="field_error" id="email_error"></span>
 														</div>
 
-														<div class="single-input">
-															<input type="text" name="mobile" id="mobile" placeholder="Your Mobile*" style="width:100%">
+														<div class="single-input mb-3">
+															<input type="text" name="mobile" id="mobile" placeholder="Your Mobile*" class="form-control" style="width:100%">
 															<span class="field_error" id="mobile_error"></span>
 														</div>
-														<div class="single-input">
-															<input type="password" name="password" id="password" placeholder="Your Password*" style="width:100%">
+														<div class="single-input mb-3">
+															<input type="password" name="password" id="password" placeholder="Your Password*" class="form-control" style="width:100%">
 															<span class="field_error" id="password_error"></span>
 														</div>
-														<div class="dark-btn">
-															<button type="button" class="fv-btn" onclick="user_register()">Register</button>
+														<div class="dark-btn mt-3">
+															<button type="button" class="fv-btn btn btn-primary" onclick="user_register()">Register</button>
 														</div>
 													</form>
 												</div>
@@ -206,50 +288,67 @@ if (isset($_POST['submit'])) {
 									</div>
 								</div>
 							<?php } ?>
-							<div class="<?php echo $accordion_class ?>">
-								Address Information
-							</div>
+
 							<form method="post">
+								<div class="<?php echo $accordion_class ?>">
+									<span><i class="fa fa-map-marker mr-2"></i> <?php echo isset($_SESSION['USER_LOGIN']) ? '1.' : '2.'; ?> Address Information</span>
+									<?php if (!isset($_SESSION['USER_LOGIN'])) { ?>
+										<small><i class="fa fa-lock mr-1"></i> Please login to continue</small>
+									<?php } else { ?>
+										<i class="fa fa-chevron-down"></i>
+									<?php } ?>
+								</div>
 								<div class="accordion__body">
 									<div class="bilinfo">
-
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-12 mb-3">
 												<div class="single-input">
-													<input type="text" name="address" placeholder="Street Address" required>
+													<input type="text" name="address" placeholder="Street Address*" class="form-control" required>
 												</div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-6 mb-3">
 												<div class="single-input">
-													<input type="text" name="city" placeholder="City/State" required>
+													<input type="text" name="city" placeholder="City / State*" class="form-control" required>
 												</div>
 											</div>
-											<div class="col-md-6">
+											<div class="col-md-6 mb-3">
 												<div class="single-input">
-													<input type="text" name="pincode" placeholder="Post code/ zip" required>
+													<input type="text" name="pincode" placeholder="Postcode / ZIP*" class="form-control" required>
 												</div>
 											</div>
-
 										</div>
-
 									</div>
 								</div>
+
 								<div class="<?php echo $accordion_class ?>">
-									payment information
+									<span><i class="fa fa-credit-card mr-2"></i> <?php echo isset($_SESSION['USER_LOGIN']) ? '2.' : '3.'; ?> Payment Information</span>
+									<?php if (!isset($_SESSION['USER_LOGIN'])) { ?>
+										<small><i class="fa fa-lock mr-1"></i> Please login to continue</small>
+									<?php } else { ?>
+										<i class="fa fa-chevron-down"></i>
+									<?php } ?>
 								</div>
 								<div class="accordion__body">
 									<div class="paymentinfo">
-										<div class="single-method">
-											COD <input type="radio" name="payment_type" value="COD" required />
-											&nbsp;&nbsp;PayU <input type="radio" name="payment_type" value="payu" required />
-										</div>
-										<div class="single-method">
-
+										<div class="checkout-payment-box mb-4">
+											<label class="checkout-payment-option">
+												<input type="radio" name="payment_type" value="COD" required />
+												<span>Cash On Delivery (COD)</span>
+											</label>
+											<label class="checkout-payment-option">
+												<input type="radio" name="payment_type" value="payu" required />
+												<span>PayU Money (Online Payment)</span>
+											</label>
 										</div>
 									</div>
+									<div class="dark-btn mt-3">
+										<button class="fv-btn btn btn-success px-4 py-2 font-weight-bold" type="submit" name="submit" style="border-radius: 8px;">
+											<i class="fa fa-check-circle mr-1"></i> Place Order
+										</button>
+									</div>
 								</div>
-								<input class="fv-btn" type="submit" name="submit" />
 							</form>
+
 						</div>
 					</div>
 				</div>

@@ -81,4 +81,16 @@ function productSoldQtyByProductId($con, $pid)
 	$row = mysqli_fetch_assoc($res);
 	return $row['qty'];
 }
+
+function set_flash($key, $message)
+{
+	$_SESSION[$key] = $message;
+}
+
+function get_flash($key)
+{
+	$message = $_SESSION[$key] ?? '';
+	unset($_SESSION[$key]);
+	return $message;
+}
 ?>
